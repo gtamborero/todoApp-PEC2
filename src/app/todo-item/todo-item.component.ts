@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { TodoItem } from '../todo-item'
 
 @Component({
   selector: 'todo-item',
@@ -14,7 +13,7 @@ export class TodoItemComponent {
   constructor() { }
 
   delete(id){
-    var todo = new TodoItem;
+    var todo = new TodoItemComponent;
     todo.delete(0);
   }
 
