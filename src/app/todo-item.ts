@@ -1,14 +1,24 @@
-import { Injectable } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-@Injectable()
 export class TodoItem {
-  id: number = 0;
-  todoTxt: string;
-  constructor (){
-    this.todoTxt = "Acabar la aplicación";
-  }
+    @Input() id: number;
+    @Input() todoTxt: string;
+}
 
-  public delete(id){
-    alert ("hi inside");
-  }
+var TODOITEMS: TodoItem[] = [
+  { id: 1, todoTxt: 'comprar pan' },
+  { id: 2, todoTxt: 'comprar galletas'}
+];
+
+@Component({
+  selector: 'todo-item',
+  template: `
+  <ul >
+  <li *ngFor="let item of todoItems">id: {{item.id}} {{item.todoTxt}} <a>X</a></li>
+  </ul>
+  `
+})
+
+export class TodoItemComponent {
+ todoItems = TODOITEMS;
 }
