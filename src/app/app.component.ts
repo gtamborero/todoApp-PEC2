@@ -6,7 +6,7 @@ import { AddTodoItem } from './todo-add';
   selector: 'app',
   template: `
   <h1>TODO APP por <span style="color:#f00; font-style:italic;">{{userCreator}}</span></h1>
-  <br />hola
+  <br />
   <todo-add></todo-add>
   <todo-item></todo-item>
   `,

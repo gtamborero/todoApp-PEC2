@@ -5,23 +5,12 @@ import { TodoService } from './todo.service';
   selector: 'todo-add',
   template: `
   <form>
-  <input #todoadd type="text" placeholder="Escribe tu tarea...">
-  <button (click)="todoService.add(todoadd.value); todoadd.value='';">SAVE</button>
-  <button (click)="todoadd.value='';">RESET</button>
+    <input #todoadd type="text" placeholder="Escribe tu tarea...">
+    <button (click)="todoService.guardarItem(todoadd.value); todoadd.value='';">SAVE</button>
+    <button (click)="todoadd.value='';">RESET</button>
   </form>
   `
 })
 export class AddTodoItem {
-
   constructor(public todoService: TodoService){}
-
-  saveTodo(){
-    // Coje el campo input#todoadd.value y guardalo en
-
-  }
-
-  resetTodo(){
-  // Coje el campo input#todoadd.value y setealo a nada
-  }
-
 }
