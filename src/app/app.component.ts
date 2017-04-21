@@ -9,6 +9,12 @@ import { AddTodoItem } from './todo-add';
   <br />
   <todo-add></todo-add>
   <todo-item></todo-item>
+
+
+    <a [routerLink]="['/user',1]">User1</a>
+    <a [routerLink]="['/user',2]">User2</a>
+
+<router-outlet></router-outlet>
   `,
   styleUrls: ['./app.component.scss']
 })

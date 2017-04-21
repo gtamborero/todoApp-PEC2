@@ -8,13 +8,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { TodoItemComponent } from './todo-item';
 import { AddTodoItem } from './todo-add';
+import { TodoItemDetail } from './todo-item-detail';
 import { TodoService } from './todo.service';
+import { APP_ROUTING } from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoItemComponent,
-    AddTodoItem
+    AddTodoItem,
+    TodoItemDetail
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import { TodoService } from './todo.service';
     MdListModule,
     MdButtonModule,
     MdCheckboxModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    APP_ROUTING
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
