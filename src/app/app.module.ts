@@ -7,11 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { TodoItemComponent } from './todo-item';
+import { AddTodoItem } from './todo-add';
+import { TodoService } from './todo.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    AddTodoItem
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,7 @@ import { TodoItemComponent } from './todo-item';
     MdCheckboxModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
