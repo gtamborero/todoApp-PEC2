@@ -4,9 +4,16 @@ import { TodoItemClass } from './todo-item.class';
 @Injectable()
 export class TodoService {
 
+// Store data
+storedData = store.set('go','hi34');
+
   // Defino como Array a todoItems + seteo por defecto
   private todoItems: TodoItemClass[] = [{ id: 0, todoTxt: 'Acabar la aplicación' }];
   public lastId = 1;
+
+  constructor(){
+    console.log(this.storedData);
+  }
 
     getTodoItems(){
       // Ahora pinto el inicial pero tiene que conectarse con storejs
@@ -30,7 +37,7 @@ export class TodoService {
     editarItem(id, text){
       // No es necesario implementar esta funcion
       // puesto que el campo input de todo-detail está bindeado
-      // con el dato del item 
+      // con el dato del item (es decir que se edita on-the-fly)
     }
 
     borrarItem(id){

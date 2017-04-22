@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 
+
 @Component({
   selector: 'todo-list',
   template: `
@@ -13,4 +14,5 @@ import { Component, Input } from '@angular/core';
 export class TodoList {
   // Según el enunciado aquí deberia ir el array privado de objetos del ToDo
   // Considero mejor ponerlos dentro del servicio todo.service.ts
+
 }
