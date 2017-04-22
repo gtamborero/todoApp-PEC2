@@ -19,6 +19,13 @@ export class TodoService {
       return this.todoItems;
     }
 
+    getTodoItem(id){
+      // Ahora pinto el inicial pero tiene que conectarse con storejs
+      // tambien tener en cuenta el lastId
+      let index = this.findIndex(id);
+      return this.todoItems[index];
+    }
+
     guardarItem(text){
       // añado elemento al inicio (0), no borro ninguno,
       if (text != ""){ // control de inserción de cualquier dato válido
@@ -29,8 +36,14 @@ export class TodoService {
 
     borrarItem(id){
       // busco dentro del array el id X y cojo su índice
-      var index = this.todoItems.findIndex( (res) => res.id == id )
+      let index = this.findIndex(id);
       // Elimino el elemento
       this.todoItems.splice(index, 1);
+    }
+
+    // En base a un ID del Todo, busco su índice real dentro del Array
+    // Sirve para borrarItem(id) y para getItem(id)
+    findIndex(id){
+      return this.todoItems.findIndex( (res) => res.id == id );
     }
 }

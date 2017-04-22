@@ -4,12 +4,10 @@ import { TodoService } from './todo.service';
 @Component({
   selector: 'todo-item',
   template: `
-  <ul>
     <li *ngFor="let item of todoItems">
-      id: {{item.id}} | {{item.todoTxt}}
+      id: {{item.id}} | <a [routerLink]="['/item',item.id]">{{item.todoTxt}}</a>
       <a (click)=todoService.borrarItem(item.id)>ELIMINAR</a>
     </li>
-  </ul>
   `
 })
 

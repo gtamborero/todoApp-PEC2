@@ -1,9 +1,10 @@
-import {RouterModule, Routes} from "@angular/router";
-import { TodoItemDetail } from './todo-item-detail';
+import { RouterModule, Routes } from "@angular/router";
+import { TodoList } from './todo-list';
+import { TodoDetail } from './todo-detail';
 
 const APP_ROUTES: Routes = [
-  { path: '', redirectTo: 'app', pathMatch: 'full' },
-  { path: 'user/:id', component: TodoItemDetail }
+  { path: '', component: TodoList },
+  { path: 'item/:id', component: TodoDetail }
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

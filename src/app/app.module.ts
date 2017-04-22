@@ -6,18 +6,20 @@ import { MdListModule, MdButtonModule, MdCheckboxModule } from '@angular/materia
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
+import { TodoList } from './todo-list';
 import { TodoItemComponent } from './todo-item';
 import { AddTodoItem } from './todo-add';
-import { TodoItemDetail } from './todo-item-detail';
+import { TodoDetail } from './todo-detail';
 import { TodoService } from './todo.service';
 import { APP_ROUTING } from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TodoList,
     TodoItemComponent,
     AddTodoItem,
-    TodoItemDetail
+    TodoDetail
   ],
   imports: [
     BrowserModule,
