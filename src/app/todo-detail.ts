@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TodoService } from './todo.service';
+import { TodoService, TodoItem } from './todo.service';
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'todo-detail',
   template: `
-  {{id}}
+  {{todoItem.id}} {{todoItem.todoTxt}}
+  <a [routerLink]="['/']">BACK</a>
   `
 })
 
@@ -16,16 +17,17 @@ export class TodoDetail implements OnInit {
 
   constructor(
     public todoService: TodoService,
+    public todoItem: TodoItem,
     private activatedRoute: ActivatedRoute
   ){
   }
-  //todoItems = this.todoService.getTodoItems();
 
   ngOnInit() {
     this.subscription = this.activatedRoute.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
 
-      console.log(this.todoService.getTodoItem(this.id));
+      // Set todoItem para usar en template
+      this.todoItem = this.todoService.getTodoItem(this.id);
     });
   }
 

@@ -10,7 +10,7 @@ import { TodoList } from './todo-list';
 import { TodoItemComponent } from './todo-item';
 import { AddTodoItem } from './todo-add';
 import { TodoDetail } from './todo-detail';
-import { TodoService } from './todo.service';
+import { TodoService, TodoItem } from './todo.service';
 import { APP_ROUTING } from './app.routes';
 
 @NgModule({
@@ -31,7 +31,7 @@ import { APP_ROUTING } from './app.routes';
     BrowserAnimationsModule,
     APP_ROUTING
   ],
-  providers: [TodoService],
+  providers: [TodoService, TodoItem],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
