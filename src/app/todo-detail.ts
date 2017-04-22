@@ -1,11 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TodoService, TodoItem } from './todo.service';
-import { ActivatedRoute } from "@angular/router";
+import { TodoItemClass } from './todo-item.class';
+import { TodoService } from './todo.service';
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'todo-detail',
   template: `
-  {{todoItem.id}} {{todoItem.todoTxt}}
+  ID: {{todoItem.id}} - <input type="text" [(ngModel)]="todoItem.todoTxt" (keyup.enter) = "this.router.navigate(['']);" >
+  <a [routerLink]="['/']" (click)="todoService.borrarItem(todoItem.id);">BORRAR</a>
   <a [routerLink]="['/']">BACK</a>
   `
 })
@@ -17,8 +19,9 @@ export class TodoDetail implements OnInit {
 
   constructor(
     public todoService: TodoService,
-    public todoItem: TodoItem,
-    private activatedRoute: ActivatedRoute
+    public todoItem: TodoItemClass,
+    private activatedRoute: ActivatedRoute,
+    public router: Router
   ){
   }
 

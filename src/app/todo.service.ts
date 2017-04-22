@@ -1,16 +1,11 @@
 import { Injectable } from '@angular/core';
-
-// Definición de la clase TodoItem
-export class TodoItem {
-    id: number;
-    todoTxt: string;
-}
+import { TodoItemClass } from './todo-item.class';
 
 @Injectable()
 export class TodoService {
 
   // Defino como Array a todoItems + seteo por defecto
-  private todoItems: TodoItem[] = [{ id: 0, todoTxt: 'Acabar la aplicación' }];
+  private todoItems: TodoItemClass[] = [{ id: 0, todoTxt: 'Acabar la aplicación' }];
   public lastId = 1;
 
     getTodoItems(){
@@ -20,8 +15,6 @@ export class TodoService {
     }
 
     getTodoItem(id){
-      // Ahora pinto el inicial pero tiene que conectarse con storejs
-      // tambien tener en cuenta el lastId
       let index = this.findIndex(id);
       return this.todoItems[index];
     }
@@ -32,6 +25,12 @@ export class TodoService {
         this.todoItems.splice(0, 0, { id: this.lastId, todoTxt: text });
         this.lastId++;
       }
+    }
+
+    editarItem(id, text){
+      // No es necesario implementar esta funcion
+      // puesto que el campo input de todo-detail está bindeado
+      // con el dato del item 
     }
 
     borrarItem(id){
