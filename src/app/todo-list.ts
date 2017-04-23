@@ -5,9 +5,10 @@ import { Component, Input } from '@angular/core';
   selector: 'todo-list',
   template: `
   <todo-add></todo-add>
-  <ul>
-    <todo-item></todo-item>
-  </ul>
+  <!-- md-list sustituye a ul para material design -->
+  <md-nav-list>
+      <todo-item></todo-item>
+  </md-nav-list>
   `
 })
 

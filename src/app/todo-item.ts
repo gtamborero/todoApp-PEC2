@@ -5,11 +5,17 @@ import { TodoService } from './todo.service';
 @Component({
   selector: 'todo-item',
   template: `
-    <li *ngFor="let item of todoItems">
-      {{item.id}} - <a (click)="goDetail(item.id)">{{item.todoTxt}}</a>
-      <a (click)=todoService.borrarItem(item.id)>ELIMINAR</a>
-    </li>
-  `
+    <!-- md-list sustituye a li -->
+    <md-list-item *ngFor="let item of todoItems">
+      <a md-line (click)="goDetail(item.id)">{{item.todoTxt}}</a>
+      <a md-raised-button color="warn" (click)="todoService.borrarItem(item.id)">
+        ELIMINAR
+     </a>
+    </md-list-item>
+  `,
+  styles: [`
+    md-list-item {border-bottom: 1px solid #eee; width:100%; clear:both;}
+  `]
 })
 
 export class TodoItem {

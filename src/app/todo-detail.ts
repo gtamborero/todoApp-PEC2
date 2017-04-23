@@ -6,10 +6,25 @@ import { ActivatedRoute, Router } from "@angular/router";
 @Component({
   selector: 'todo-detail',
   template: `
-  ID: {{todoItem.id}} - <input type="text" [(ngModel)]="todoItem.todoTxt" (keyup.enter) = "this.router.navigate(['']);" >
-  <a [routerLink]="['/']" (click)="todoService.borrarItem(todoItem.id);">BORRAR</a>
-  <a [routerLink]="['/']" (click)="todoService.editarItem(todoItem.id, todoItem.todoTxt);">BACK</a>
-  `
+  <div style="width:10%; float:left; text-align:left;">
+    <md-chip-list>
+      <md-chip color="accent" selected="true" style="font-size:16px; font-family:Arial;">ID: {{todoItem.id}}</md-chip>
+    </md-chip-list>
+  </div>
+
+  <md-input-container>
+    <input mdInput type="text" autofocus placeholder="Escribe tu tarea..." [(ngModel)]="todoItem.todoTxt" (keyup.enter) = "this.router.navigate(['']);" >
+  </md-input-container>
+
+  <div>
+    <button md-button color="warn" [routerLink]="['/']" (click)="todoService.editarItem(todoItem.id, todoItem.todoTxt);">VOLVER</button>
+    <button md-button color="primary" [routerLink]="['/']" (click)="todoService.borrarItem(todoItem.id);">BORRAR</button>
+  </div>
+  `,
+  styles: [`
+    md-input-container {width:60%; float:left;}
+    div {float:right; width:30%; text-align:right;}
+  `]
 })
 
 export class TodoDetail implements OnInit {

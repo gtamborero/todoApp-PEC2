@@ -6,10 +6,17 @@ import { AddTodoItem } from './todo-add';
 @Component({
   selector: 'app',
   template: `
-  <h1>TodoApp por <span style="color:#f00; font-style:italic;">{{userCreator}}</span></h1>
+
+  <md-toolbar color="primary">
+    <div style="float:left;">TodoApp por</div>
+    <div style="font-style:italic; float:right; text-align:right; width:100%;">{{userCreator}}</div>
+  </md-toolbar>
+
   <router-outlet></router-outlet>
   `,
-  styleUrls: ['./app.component.scss']
+  styles: [`
+    md-toolbar {margin-bottom:20px;}
+  `]
 })
 export class AppComponent {
   userCreator: string = "Guillermo Tamborero";
