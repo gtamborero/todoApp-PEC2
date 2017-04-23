@@ -6,7 +6,7 @@ import { TodoService } from './todo.service';
   selector: 'todo-item',
   template: `
     <li *ngFor="let item of todoItems">
-      <a (click)="goDetail(item.id)">{{item.todoTxt}}</a>
+      {{item.id}} - <a (click)="goDetail(item.id)">{{item.todoTxt}}</a>
       <a (click)=todoService.borrarItem(item.id)>ELIMINAR</a>
     </li>
   `

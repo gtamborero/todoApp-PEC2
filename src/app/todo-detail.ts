@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from "@angular/router";
   template: `
   ID: {{todoItem.id}} - <input type="text" [(ngModel)]="todoItem.todoTxt" (keyup.enter) = "this.router.navigate(['']);" >
   <a [routerLink]="['/']" (click)="todoService.borrarItem(todoItem.id);">BORRAR</a>
-  <a [routerLink]="['/']">BACK</a>
+  <a [routerLink]="['/']" (click)="todoService.editarItem(todoItem.id, todoItem.todoTxt);">BACK</a>
   `
 })
 
